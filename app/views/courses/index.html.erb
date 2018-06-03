@@ -1,0 +1,8 @@
+<% if admin_signed_in? %>
+	<%= link_to "Nuevo Curso", new_course_path %><br/>
+<% end %>
+<% if admin_signed_in? or user_signed_in? %>
+	<% @courses.each do |course| %>
+		<%= link_to course.name, course %><br/>
+	<% end %>
+<% end %>

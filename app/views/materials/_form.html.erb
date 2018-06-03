@@ -1,0 +1,15 @@
+
+
+<%= form_for [@course, @material], html: { class: 'directUpload', data: { 'form-data': (@s3_direct_post.fields), 'url': @s3_direct_post.url, 'host': URI.parse(@s3_direct_post.url).host } } do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %><br/>
+	<%= f.label :description %>
+	<%= f.text_area :description %><br/>
+	<%= f.label :file %>
+	<%= f.file_field :file %><br/>
+	<%= f.submit "Guardar" %>
+<% end %>
+
+<%= javascript_include_tag "/assets/forms/jquery.upload.widget" %>
+<%= javascript_include_tag "/assets/forms/z.jquery.fileupload" %>
+<%= javascript_include_tag "/assets/forms/forms" %>

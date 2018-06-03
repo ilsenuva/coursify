@@ -1,0 +1,11 @@
+<h1><%= @course.name %></h1>
+<% if admin_signed_in? %>
+	<%= link_to "Añadir material", new_course_material_path(@course) %><br/>
+	<%= link_to "Editar", edit_course_path(@course) %><br/>
+	<%= link_to "Eliminar", course_path(@course), method: :delete, data: { confirm: "¿Estás seguro? Esta acción no se puede deshacer"} %><br/>
+<% end %>
+<p><%= @course.description %></p>
+
+<% @course.materials.each do |material| %>
+	<%= link_to material.name, [@course, material] %><br/>
+<% end %>
